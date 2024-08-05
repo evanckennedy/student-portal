@@ -44,7 +44,7 @@ namespace StudentPortal.Controllers
             return View(course);
         }
 
-        public IActionResult Edit (int id)
+        public IActionResult Update(int id)
         {
             var course = _courseService.GetCourse(id);
             ViewBag.Departments = _departmentService.GetDepartments();
@@ -52,7 +52,7 @@ namespace StudentPortal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, Course course)
+        public IActionResult Update(int id, Course course)
         {
             if (ModelState.IsValid)
             {
