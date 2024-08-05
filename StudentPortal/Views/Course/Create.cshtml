@@ -24,9 +24,9 @@
         @Html.ValidationMessageFor(m => m.Credits, "", new { @class = "text-danger" })
     </div>
     <div class="form-field">
-        @Html.LabelFor(m => m.DepartmentId, "Department")
-        @Html.DropDownListFor(m => m.DepartmentId, new SelectList(Model.Departments, "DepartmentId", "DepartmentName"), "Select a Department")
-        @Html.ValidationMessageFor(m => m.DepartmentId, "", new { @class = "text-danger" })
+        @Html.LabelFor(m => m.DepartmentID, "Department")
+        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(departments, "DepartmentId", "DepartmentName"), "Select a Department")
+        @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
     </div>
 
     <button type="submit" class="btn btn-primary">Add</button>
