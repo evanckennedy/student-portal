@@ -1,1 +1,29 @@
-﻿
+﻿@model StudentPortal.Models.StudentViewModel
+
+@{
+    ViewBag.Title = "Register Student";
+}
+
+<h2>Register Student</h2>
+
+@using (Html.BeginForm()) {
+    <div class="form-field">
+        @Html.LabelFor(m => m.StudentName)
+        @Html.TextBoxFor(m => m.StudentName)
+        @Html.ValidationMessageFor(m => m.StudentName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-field">
+        @Html.LabelFor(m => m.StudentEmail)
+        @Html.TextBoxFor(m => m.StudentEmail)
+        @Html.ValidationMessageFor(m => m.StudentEmail, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-field">
+        @Html.LabelFor(m => m.DepartmentId, "Department")
+        @Html.DropDownListFor(m => m.DepartmentId, new SelectList(Model.Departments, "DepartmentId", "DepartmentName"), "Select a Department")
+        @Html.ValidationMessageFor(m => m.DepartmentId, "", new { @class = "text-danger" })
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Register</button>
+}
+
+@* <a href="@Url.Action("Index")">Back to List</a> *@
