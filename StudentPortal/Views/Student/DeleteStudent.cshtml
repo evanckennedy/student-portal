@@ -1,1 +1,18 @@
-﻿
+﻿@model StudentPortal.Models.Student
+
+<h2>Remove Student</h2>
+
+<h3>Are you sure you want to remove the following student from the record?</h3>
+
+<div>
+    <p>Student Number: #@Model.StudentID</p>
+    <p>Name: @Model.StudentName</p>
+    <p>Email Address: @Model.StudentEmail</p>
+    <p>Department: @Model.Department.DepartmentName</p>
+</div>
+@using (Html.BeginForm()) 
+{
+    <button type="submit" class="btn btn-primary">Remove</button>
+}
+
+<a href="/Student/Index">Back to Students' List</a>
