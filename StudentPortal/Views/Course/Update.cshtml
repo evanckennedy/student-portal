@@ -1,0 +1,35 @@
+﻿@model StudentPortal.Models.Course
+
+@{
+    ViewBag.Title = "Edit Course";
+    var departments = ViewBag.Departments as IEnumerable<StudentPortal.Models.Department>;
+}
+
+<h2>Change Course Details</h2>
+
+@using (Html.BeginForm()) {
+    <div class="form-field">
+        @Html.LabelFor(m => m.CourseName)
+        @Html.TextBoxFor(m => m.CourseName)
+        @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-field">
+        @Html.LabelFor(m => m.Duration)
+        @Html.TextBoxFor(m => m.Duration)
+        @Html.ValidationMessageFor(m => m.Duration, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-field">
+        @Html.LabelFor(m => m.Credits)
+        @Html.TextBoxFor(m => m.Credits)
+        @Html.ValidationMessageFor(m => m.Credits, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-field">
+        @Html.LabelFor(m => m.DepartmentID, "Department")
+        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(departments, "DepartmentID", "DepartmentName"), "Select a Department")
+        @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+}
+
+<a href="@Url.Action("Index")">Back to List</a>
