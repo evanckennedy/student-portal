@@ -1,1 +1,29 @@
-﻿
+﻿@model IEnumerable<StudentPortal.Models.Course>
+
+<h2>Enrolled Courses</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Duration</th>
+            <th>Credits</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model) 
+        {
+            <tr>
+                <td>@course.CourseName</td>
+                <td>@course.Duration</td>
+                <td>@course.Credits</td>
+                <td>
+                    <a href="@Url.Action("DropCourse", new { courseId = course.CourseID })">Drop</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("StudentProfile")">Back to Profile</a>
