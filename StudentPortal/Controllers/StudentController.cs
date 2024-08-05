@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using StudentPortal.BLL;
 using StudentPortal.Models;
 
@@ -10,7 +9,8 @@ namespace StudentPortal.Controllers
         private readonly StudentService _studentService;
         private readonly DepartmentService _departmentService;
 
-        public StudentController(StudentService studentService, DepartmentService departmentService) {
+        public StudentController(StudentService studentService, DepartmentService departmentService) 
+        {
             _studentService = studentService;
             _departmentService = departmentService;
         }
@@ -20,7 +20,8 @@ namespace StudentPortal.Controllers
         // options to delete and update the student
         public IActionResult Index() 
         {
-            
+            var students = _studentService.GetStudents();
+            return View(students);
         }
 
         // a registration page for the students to register themselves
@@ -29,18 +30,30 @@ namespace StudentPortal.Controllers
         [HttpGet]
         public IActionResult RegisterStudent() 
         {
-            
+            var studentDepartmentModel = new StudentViewModel 
+            {
+                Departments = _departmentService.GetDepartments()
+            };
+            return View(studentDepartmentModel);
         }
 
         // the post methods redirects the student to their profile page
         [HttpPost]
-        public IActionResult RegisterStudent(StudentViewModel student) 
+        public IActionResult RegisterStudent(StudentViewModel studentViewModel) 
         {
             if (ModelState.IsValid) 
             {
-                
+                var student = new Student 
+                {
+                    StudentName = studentViewModel.StudentName,
+                    StudentEmail = studentViewModel.StudentEmail,
+                    DepartmentID = studentViewModel.DepartmentId
+                };
+                _studentService.AddStudent(student);
+                return RedirectToAction("StudentProfile", new { id = student.StudentID });
             }
-            return View(student);
+            studentViewModel.Departments = _departmentService.GetDepartments();
+            return View(studentViewModel);
         }
 
         // it shows all the information to the student about himself along
@@ -49,51 +62,89 @@ namespace StudentPortal.Controllers
         // to the page to see all the courses the student is enrolled in; i.e.,
         // 'StudentProfile()' has relation with both department and course entity
         [HttpGet]
-        public IActionResult StudentProfile() {
-
-        }
-
-        [HttpPost]
-        public IActionResult StudentProfile() {
-
+        public IActionResult StudentProfile(int id) {
+            var student = _studentService.GetStudent(id);
+            if (student == null) 
+            {
+                return NotFound();
+            }
+            return View(student);
         }
 
         // it displays a list of all the courses the student is enrolled in with
         // an option to drop a course; by default the student is enrolled in all
         // the courses offered in a department
         [HttpGet]
-        public IActionResult EnrolledCourses() {
-
-        }
-
-        [HttpPost]
-        public IActionResult EnrolledCourses() {
-
+        public IActionResult EnrolledCourses(int studentID) 
+        {
+            var student = _studentService.GetStudent(studentID);
+            if (student == null) 
+            {
+                return NotFound();
+            }
+            var courses = student.Courses.ToList();
+            return View(courses);
         }
 
         // it is for the admin to make change in student name,
         // student email and their department
         [HttpGet]
-        public IActionResult UpdateStudent() {
-
+        public IActionResult UpdateStudent(int id) 
+        {
+            var student = _studentService.GetStudent(id);
+            if (student == null) 
+            {
+                return NotFound();
+            }
+            var StudentDepartmentmodel = new StudentViewModel 
+            {
+                StudentID = student.StudentID,
+                StudentName = student.StudentName,
+                StudentEmail = student.StudentEmail,
+                DepartmentId = student.DepartmentID,
+                Departments = _departmentService.GetDepartments()
+            };
+            return View(StudentDepartmentmodel);
         }
 
         // the post redirects the admin to the index page
         [HttpPost]
-        public IActionResult UpdateStudent() {
-
+        public IActionResult UpdateStudent(StudentViewModel studentViewModel) 
+        {
+            if (ModelState.IsValid) 
+            {
+                var student = new Student 
+                {
+                    StudentID = studentViewModel.StudentID,
+                    StudentName = studentViewModel.StudentName,
+                    StudentEmail = studentViewModel.StudentEmail,
+                    DepartmentID = studentViewModel.DepartmentId
+                };
+                _studentService.UpdateStudent(student);
+                return RedirectToAction("Index");
+            }
+            studentViewModel.Departments = _departmentService.GetDepartments();
+            return View(studentViewModel);
         }
 
         // it is for the admin to delete a student
         [HttpGet]
-        public IActionResult DeleteStudent() {
-
+        public IActionResult DeleteStudent(int id) 
+        {
+            var student = _studentService.GetStudent(id);
+            if (student == null) 
+            {
+                return NotFound();
+            }
+            return View(student);
         }
 
         // the post redirects the admin to the index page
         [HttpPost]
-        public IActionResult DeleteStudent() {
-
+        public IActionResult DeleteConfirmed(int id) 
+        {
+            _studentService.DeleteStudent(id);
+            return RedirectToAction("Index");
         }
     }
 }
