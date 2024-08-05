@@ -1,5 +1,35 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model StudentPortal.Models.Course
+
 @{
+    ViewBag.Title = "Create Course";
+    var departments = ViewBag.Departments as IEnumerable<StudentPortal.Models.Department>;
 }
+
+<h2>Create Course</h2>
+
+@using (Html.BeginForm()) {
+    <div class="form-field">
+        @Html.LabelFor(m => m.CourseName)
+        @Html.TextBoxFor(m => m.CourseName)
+        @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-field">
+        @Html.LabelFor(m => m.Duration)
+        @Html.TextBoxFor(m => m.Duration)
+        @Html.ValidationMessageFor(m => m.Duration, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-field">
+        @Html.LabelFor(m => m.Credits)
+        @Html.TextBoxFor(m => m.Credits)
+        @Html.ValidationMessageFor(m => m.Credits, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-field">
+        @Html.LabelFor(m => m.DepartmentId, "Department")
+        @Html.DropDownListFor(m => m.DepartmentId, new SelectList(Model.Departments, "DepartmentId", "DepartmentName"), "Select a Department")
+        @Html.ValidationMessageFor(m => m.DepartmentId, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+}
+
+<a href="@Url.Action("Index")">Back to List</a>
