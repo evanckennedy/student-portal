@@ -1,1 +1,29 @@
-﻿
+﻿@model IEnumerable<StudentPortal.Models.Department>
+
+<h2>All Courses</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Department ID</th>
+            <th>Department Name</th>
+            <th>Department Head</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>@department.DepartmentID</td>
+                <td>@department.DepartmentName</td>
+                <td>@department.DepartmentHead</td>
+                <td>
+                    <a href="@Url.Action("Update", new { id = department.DepartmentID })">Edit</a> |
+                    <a href="@Url.Action("Delete", new { id = department.DepartmentID })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")">Add New Department</a>
