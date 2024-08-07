@@ -1,4 +1,6 @@
-﻿namespace StudentPortal.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StudentPortal.Models
 {
     public class Department
     {
