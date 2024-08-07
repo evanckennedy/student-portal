@@ -1,6 +1,6 @@
 ﻿@model StudentPortal.Models.Department
 
-<h2>Add Department</h2>
+<h2>Update Department</h2>
 
 @using (Html.BeginForm())
 {
@@ -16,7 +16,7 @@
         @Html.ValidationMessageFor(m => m.DepartmentHead, "", new { @class = "text-danger" })
     </div>
 
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary">Update</button>
 }
 
 <a href="@Url.Action("Index")">Back to List</a>
