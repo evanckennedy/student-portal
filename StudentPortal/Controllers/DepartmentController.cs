@@ -24,11 +24,7 @@ namespace StudentPortal.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var departmentViewModel = new DepartmentViewModel
-            {
-                Courses = _courseService.GetCourses()
-            };
-            return View(departmentViewModel);
+            return View();
         }
 
         [HttpPost]
@@ -38,13 +34,12 @@ namespace StudentPortal.Controllers
             {
                 Department department = new Department
                 {
-                    DepartmentID = departmentViewModel.DepartmentID,
                     DepartmentName = departmentViewModel.DepartmentName,
                     DepartmentHead = departmentViewModel.DepartmentHead
                 };
                 _departmentService.AddDepartment(department);
+                return RedirectToAction("Index");
             }
-            departmentViewModel.Courses = _courseService.GetCourses();
             return View(departmentViewModel);
         }
 
