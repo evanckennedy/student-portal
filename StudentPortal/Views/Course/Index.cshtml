@@ -1,4 +1,4 @@
-﻿@model IEnumerable<StudentPortal.Models.Course>
+﻿@model IEnumerable<Course>
 
 <h2>All Courses</h2>
 <table class="table">
@@ -8,21 +8,21 @@
             <th>Course Name</th>
             <th>Duration</th>
             <th>Credits</th>
-            <th>Department</th>
+            <th>Department ID</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var course in Model)
+        @foreach (var course in Model) 
         {
             <tr>
                 <td>@course.CourseID</td>
                 <td>@course.CourseName</td>
-                <td>@course.Duration</td>
+                <td>@course.Duration Months</td>
                 <td>@course.Credits</td>
-                <td>@course.Department.DepartmentName</td>
+                <td>@course.DepartmentID</td>
                 <td>
-                    <a href="@Url.Action("Update", new { id = course.CourseID })">Edit</a> |
+                    <a href="@Url.Action("Update", new { id = course.CourseID })">Edit</a>
                     <a href="@Url.Action("Delete", new { id = course.CourseID })">Delete</a>
                 </td>
             </tr>

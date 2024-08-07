@@ -1,13 +1,8 @@
-﻿@model StudentPortal.Models.Course
-
-@{
-    ViewBag.Title = "Edit Course";
-    var departments = ViewBag.Departments as IEnumerable<StudentPortal.Models.Department>;
-}
-
+﻿@model StudentPortal.Models.CourseViewModel
 <h2>Change Course Details</h2>
 
 @using (Html.BeginForm()) {
+    @Html.HiddenFor(m => m.CourseID)
     <div class="form-field">
         @Html.LabelFor(m => m.CourseName)
         @Html.TextBoxFor(m => m.CourseName)
@@ -23,12 +18,11 @@
         @Html.TextBoxFor(m => m.Credits)
         @Html.ValidationMessageFor(m => m.Credits, "", new { @class = "text-danger" })
     </div>
-    <div class="form-field">
+    <div>
         @Html.LabelFor(m => m.DepartmentID, "Department")
-        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(departments, "DepartmentID", "DepartmentName"), "Select a Department")
+        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentID", "DepartmentName"), "Select a Department")
         @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
     </div>
-
     <button type="submit" class="btn btn-primary">Save Changes</button>
 }
 
