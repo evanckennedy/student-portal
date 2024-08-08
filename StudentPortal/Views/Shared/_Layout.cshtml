@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/StudentPortal.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
+    @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StudentPortal</a>
@@ -25,6 +29,36 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header> *@
+
+    <header>
+        <div class="sub-header">
+            <div class="container flex space-between">
+                <p class="up-case">Apply before August 20 to avail 'Early-Bird' scholarship!</p>
+                <div class="top-side-options flex gap-20">
+                    <p class="up-case">
+                        Usd <i class="fa-solid fa-angle-down"></i>
+                    </p>
+                    <p>
+                        English <i class="fa-solid fa-angle-down"></i>
+                    </p>
+                    <p>
+                        My Account <i class="fa-solid fa-angle-down"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="flex container space-between">
+                <div class="company-icon">
+                    <img src={companyLogo} class="logo" alt="School of Learning" />
+                </div>
+                <div class="header-options">
+                    <ul class="flex gap-10">
                         <!-- Student Dropdown -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-dark" href="#" id="eventDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,20 +90,71 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="Create">Create Course</a></li>
                             </ul>
                         </li>
+                        <button class="button register-button">Register</button>
+                        <button class="button login-button">Login</button>
                     </ul>
                 </div>
+                
             </div>
-        </nav>
+        </div>
     </header>
-    <div class="container">
+
+    <div>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer>
         <div class="container">
-            &copy; 2024 - StudentPortal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="socials flex gap-30">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-x-twitter"></i>
+                <i class="fa-brands fa-youtube"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <div class="main-footer flex">
+                <span class="footer-logo">
+                    <img src={footerLogo} class="ft-logo" alt="School Of Learning" />
+                    <p class="logo-text">where knowledge meets excellence</p>
+                </span>
+                <span class="footer-about">
+                    <h4 class="up-case">About us</h4>
+                    <ul>
+                        <li>Our Team</li>
+                        <li>Student Reviews</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </span>
+                <span class="footer-firm">
+                    <h4 class="up-case">Connect</h4>
+                    <ul>
+                        <li>Locations</li>
+                        <li>Careers</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </span>
+                <span class="footer-support">
+                    <h4 class="up-case">Support</h4>
+                    <ul>
+                        <li>Apply</li>
+                        <li>Track Application</li>
+                        <li>Report Problem</li>
+                    </ul>
+                </span>
+                <span class="footer-results">
+                    <h4 class="up-case">Resources</h4>
+                    <ul>
+                        <li>Blogs</li>
+                        <li>Newsletter</li>
+                        <li>Free guides</li>
+                    </ul>
+                </span>
+            </div>
+            <div class="grid center copyright">
+                <p>&copy; 2024 School Of Learning | All Rights Reserved</p>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
