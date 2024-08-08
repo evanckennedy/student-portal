@@ -47,7 +47,7 @@ namespace StudentPortal.Controllers
                 {
                     StudentName = studentViewModel.StudentName,
                     StudentEmail = studentViewModel.StudentEmail,
-                    DepartmentID = studentViewModel.DepartmentId
+                    DepartmentID = studentViewModel.DepartmentID
                 };
                 _studentService.AddStudent(student);
                 return RedirectToAction("StudentProfile", new { id = student.StudentID });
@@ -101,7 +101,7 @@ namespace StudentPortal.Controllers
                 StudentID = student.StudentID,
                 StudentName = student.StudentName,
                 StudentEmail = student.StudentEmail,
-                DepartmentId = student.DepartmentID,
+                DepartmentID = student.DepartmentID,
                 Departments = _departmentService.GetDepartments()
             };
             return View(StudentDepartmentmodel);
@@ -118,7 +118,7 @@ namespace StudentPortal.Controllers
                     StudentID = studentViewModel.StudentID,
                     StudentName = studentViewModel.StudentName,
                     StudentEmail = studentViewModel.StudentEmail,
-                    DepartmentID = studentViewModel.DepartmentId
+                    DepartmentID = studentViewModel.DepartmentID
                 };
                 _studentService.UpdateStudent(student);
                 return RedirectToAction("Index");
