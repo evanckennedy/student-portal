@@ -92,6 +92,7 @@ namespace StudentPortal.Controllers
                 return NotFound();
             }
             //var courses = student.Courses;
+            ViewBag.StudentID = studentID;
             return View(courses);
         }
 
