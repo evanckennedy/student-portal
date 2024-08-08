@@ -19,7 +19,7 @@ namespace StudentPortal.DAL
 
         public Student GetStudent(int StudentID) 
         {
-            return _context.Students.Find(StudentID);
+            return _context.Students.Include(m => m.Department).FirstOrDefault(d => d.StudentID == StudentID);
         }
 
         public void AddStudent(Student student) 
