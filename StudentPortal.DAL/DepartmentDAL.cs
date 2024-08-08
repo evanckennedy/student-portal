@@ -1,4 +1,5 @@
-﻿using StudentPortal.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using StudentPortal.Models;
 
 namespace StudentPortal.DAL
 {
@@ -13,12 +14,12 @@ namespace StudentPortal.DAL
 
         public List<Department> GetDepartments() 
         {
-            return _context.Departments.ToList();
+            return _context.Departments.Include(d => d.Courses).ToList();
         }
 
         public Department GetDepartment(int DepartmentID) 
         {
-            return _context.Departments.Find(DepartmentID);
+            return _context.Departments.Include(d => d.Courses).FirstOrDefault(d => d.DepartmentID == DepartmentID);
         }
 
         public void AddDepartment(Department department) 

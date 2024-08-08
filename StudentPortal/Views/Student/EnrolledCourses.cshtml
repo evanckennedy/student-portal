@@ -8,7 +8,6 @@
             <th>Course Name</th>
             <th>Duration</th>
             <th>Credits</th>
-            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -18,9 +17,6 @@
                 <td>@course.CourseName</td>
                 <td>@course.Duration</td>
                 <td>@course.Credits</td>
-                <td>
-                    <a href="@Url.Action("DropCourse", new { courseID = course.CourseID })">Drop</a>
-                </td>
             </tr>
         }
     </tbody>
