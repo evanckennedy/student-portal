@@ -23,7 +23,7 @@
                 <td>@student.StudentID</td>
                 <td>@student.StudentName</td>
                 <td>@student.StudentEmail</td>
-                <td>@student.DepartmentID</td>
+                <td>@student.Department.DepartmentName</td>
                 <td>
                     <a href="@Url.Action("UpdateStudent", new { id = student.StudentID })">Edit</a>
                     <a href="@Url.Action("DeleteStudent", new { id = student.StudentID })">Delete</a>

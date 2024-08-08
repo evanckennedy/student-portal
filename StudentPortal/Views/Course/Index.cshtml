@@ -8,7 +8,7 @@
             <th>Course Name</th>
             <th>Duration</th>
             <th>Credits</th>
-            <th>Department ID</th>
+            <th>Department</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -20,7 +20,7 @@
                 <td>@course.CourseName</td>
                 <td>@course.Duration Months</td>
                 <td>@course.Credits</td>
-                <td>@course.DepartmentID</td>
+                <td>@course.Department.DepartmentName</td>
                 <td>
                     <a href="@Url.Action("Update", new { id = course.CourseID })">Edit</a>
                     <a href="@Url.Action("Delete", new { id = course.CourseID })">Delete</a>

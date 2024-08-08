@@ -1,4 +1,5 @@
-﻿using StudentPortal.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using StudentPortal.Models;
 
 namespace StudentPortal.DAL
 {
@@ -13,7 +14,7 @@ namespace StudentPortal.DAL
 
         public List<Student> GetStudents() 
         {
-            return _context.Students.ToList();
+            return _context.Students.Include(s => s.Department).ToList();
         }
 
         public Student GetStudent(int StudentID) 

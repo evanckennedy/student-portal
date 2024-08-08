@@ -22,7 +22,7 @@ namespace StudentPortal.Controllers
         // Actions
         public IActionResult Index()
         {
-            var courses = _courseService.GetCourses();
+            List<Course> courses = _courseService.GetCourses();
             return View(courses);
         }
 
@@ -47,15 +47,16 @@ namespace StudentPortal.Controllers
             if (ModelState.IsValid)
             {
                 // Hey, use the departmentID, to actually find the department object, and assign it to the new course's department property .Find()
-
+                Department department = _departmentService.GetDepartments().FirstOrDefault(d => d.DepartmentID == courseViewModel.DepartmentID);
                 Course course = new Course
                 {
                     CourseName = courseViewModel.CourseName,
                     Duration = courseViewModel.Duration,
                     Credits = courseViewModel.Credits,
                     DepartmentID = courseViewModel.DepartmentID,
-                    Department = _departmentService.GetDepartments().FirstOrDefault(d => d.DepartmentID == courseViewModel.DepartmentID)
+                    Department = department
                 };
+                department.Courses.Add(course);
                 _courseService.AddCourse(course);
                 return RedirectToAction("Index");
             }

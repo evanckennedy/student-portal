@@ -48,13 +48,16 @@ namespace StudentPortal.Controllers
         {
             if (ModelState.IsValid) 
             {
+                Department department = _departmentService.GetDepartments().FirstOrDefault(d => d.DepartmentID == studentViewModel.DepartmentID);
                 var student = new Student 
                 {
                     StudentName = studentViewModel.StudentName,
                     StudentEmail = studentViewModel.StudentEmail,
                     DepartmentID = studentViewModel.DepartmentID,
-                    Department = _departmentService.GetDepartments().FirstOrDefault(d => d.DepartmentID == studentViewModel.DepartmentID)
+                    Department = department
                 };
+                department.Students.Add(student);
+
                 _studentService.AddStudent(student);
                 return RedirectToAction("StudentProfile", new { id = student.StudentID });
                 //return RedirectToAction("Index");

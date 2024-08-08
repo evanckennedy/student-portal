@@ -1,4 +1,5 @@
-﻿using StudentPortal.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using StudentPortal.Models;
 
 namespace StudentPortal.DAL
 {
@@ -13,12 +14,12 @@ namespace StudentPortal.DAL
 
         public List<Course> GetCourses() 
         {
-            return _context.Courses.ToList();
+            return _context.Courses.Include(c => c.Department).ToList();
         }
 
-        public Course GetCourse(int CourseID) 
+        public Course GetCourse(int courseID) 
         {
-            return _context.Courses.Find(CourseID);
+            return _context.Courses.Find(courseID);
         }
 
         public void AddCourse(Course course) 

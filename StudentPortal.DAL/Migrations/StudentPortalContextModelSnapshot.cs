@@ -64,7 +64,7 @@ namespace StudentPortal.DAL.Migrations
 
                     b.HasIndex("DepartmentID");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("StudentPortal.Models.Department", b =>
@@ -87,7 +87,7 @@ namespace StudentPortal.DAL.Migrations
 
                     b.HasKey("DepartmentID");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("StudentPortal.Models.Student", b =>
@@ -115,7 +115,7 @@ namespace StudentPortal.DAL.Migrations
 
                     b.HasIndex("DepartmentID");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("StudentCourse", b =>
