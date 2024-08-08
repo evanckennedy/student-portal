@@ -144,15 +144,24 @@ namespace StudentPortal.Controllers
             {
                 return NotFound();
             }
-            return View(student);
+            var studentViewModel = new StudentViewModel
+            {
+                StudentID = student.StudentID,
+                StudentName = student.StudentName,
+                StudentEmail = student.StudentEmail,
+                DepartmentID = student.DepartmentID,
+                Departments = new List<Department> { student.Department } // Assuming you want to show the department
+            };
+            return View(studentViewModel);
         }
 
         // the post redirects the admin to the index page
         [HttpPost]
-        public IActionResult DeleteConfirmed(int id) 
+        public IActionResult DeleteConfirmed(StudentViewModel studentViewModel)
         {
-            _studentService.DeleteStudent(id);
+            _studentService.DeleteStudent(studentViewModel.StudentID);
             return RedirectToAction("Index");
         }
+
     }
 }

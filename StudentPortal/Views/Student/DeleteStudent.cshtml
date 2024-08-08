@@ -1,4 +1,4 @@
-﻿@model StudentPortal.Models.Student
+﻿@model StudentPortal.Models.StudentViewModel
 
 <h2>Remove Student</h2>
 
@@ -8,10 +8,11 @@
     <p>Student Number: #@Model.StudentID</p>
     <p>Name: @Model.StudentName</p>
     <p>Email Address: @Model.StudentEmail</p>
-    <p>Department: @Model.Department.DepartmentName</p>
+    <p>Department ID: @Model.DepartmentID</p>
 </div>
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("DeleteConfirmed", "Student", FormMethod.Post))
 {
+    <input type="hidden" asp-for="StudentID" />
     <button type="submit" class="btn btn-primary">Remove</button>
 }
 
