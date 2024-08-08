@@ -44,6 +44,10 @@ main {
     display: flex;
 }
 
+.justify-center {
+    justify-content: center;
+}
+
 .space-between {
     justify-content: space-between;
 }
@@ -64,6 +68,10 @@ main {
     gap: 30px;
 }
 
+.gap-50 {
+    gap: 50px;
+}
+
 .width-33 {
     width: 33.33%;
 }
@@ -81,6 +89,13 @@ ul {
     list-style: none;
 }
 
+.pricing p {
+    color: #636B72;
+}
+
+section {
+    padding: 65px 0 65px 0;
+}
 
 /*-------------------------------------------------------*/
 /* Header                                                */
@@ -107,12 +122,18 @@ header {
 }
 
 .company-icon {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 4px;
     align-items: flex-start;
 }
 
 .logo {
-    height: 70px;
-    width: auto;
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    color: #212486;
+    padding-right: 12px;
 }
 
 .header-options {
@@ -139,7 +160,7 @@ header {
     }
 
 .button {
-    height: 50px;
+    height: 44px;
     line-height: 36px;
     min-width: 100px;
     color: #fff;
@@ -148,6 +169,7 @@ header {
     text-align: center;
     border-radius: 50px;
     background-color: aqua;
+    transition: all 0.25s ease-in-out;
 }
 
 .register-button {
@@ -191,8 +213,60 @@ header {
         font-weight: 600;
     }
 
+/*-------------------------------------------------------*/
+/* Mission Section                                       */
+/*-------------------------------------------------------*/
+.row-one, .mission-row, .team-row, .learn-more {
+    flex-wrap: wrap;
+}
+.mission-columns {
+    flex: 0 0 calc(25% - 15px);
+    max-width: calc(25% - 15px);
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    text-align: left;
+    box-shadow: 0.5px 0.5px 1px 0.5px rgb(0 0 0 / 0.03);
+    transition: all 0.25s ease-in-out;
+}
 
+.columns h3 {
+    font-size: 23px;
+}
 
+.columns i {
+    font-size: 60px;
+    color: #0067ff;
+}
+
+.section-heading {
+    padding: 0px 0 25px 0;
+}
+
+.section-heading h3 {
+    font-size: 46.4px;
+    padding-top: 10px;
+}
+
+.section-heading h3 span {
+    color: #1d439a;
+}
+
+.mission-columns h3 {
+    color: #1d439a;
+}
+
+.mission-columns:hover {
+    scale: 1.015;
+    box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 0.04);
+}
+
+.mission-row i {
+    padding: 2px 10px 0 0;
+    font-size: 28px;
+}
 
 /*-------------------------------------------------------*/
 /* Footer                                                */
@@ -205,15 +279,18 @@ footer {
 .socials {
     justify-content: center;
     padding: 60px 0 0;
-    font-size: 34px;
-    color: var(--primary-background);
-    cursor: var(--cursor);
-    transition: var(--transition);
+    font-size: 30px;
+    color: #f8f9fe;
+    cursor: pointer;
 }
 
-    .socials i:hover {
-        color: #1b41c1;
-    }
+.socials i {
+    transition: all 0.25s ease-in-out;
+}
+
+.socials i:hover {
+    color: #a1afd9;
+}
 
 .main-footer {
     margin-top: 60px;
@@ -223,14 +300,17 @@ footer {
     border-bottom: 1px solid #a6acba;
 }
 
-.ft-logo {
-    margin-top: -10px;
-    width: 240px;
-    height: 100px;
+.footer-icon {
+    margin-left: 12px;
+    font-size: 26px;
+}
+
+.footer-icon .logo {
+    color: #a6acba;
 }
 
 .logo-text {
-    margin: -10px 0 0 18px;
+    margin: -20px 0 0 18px;
     font-family: "Dancing Script", cursive;
     font-size: 26px;
     font-weight: 500;
@@ -248,9 +328,9 @@ footer li {
     cursor: pointer;
 }
 
-    footer li:hover {
-        text-decoration: underline;
-    }
+footer li:hover {
+    text-decoration: underline;
+}
 
 footer span {
     padding-bottom: 46px;
