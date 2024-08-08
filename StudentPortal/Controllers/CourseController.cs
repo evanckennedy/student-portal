@@ -106,17 +106,29 @@ namespace StudentPortal.Controllers
         }
 
         [HttpGet]
-
         public IActionResult Delete(int id)
         {
             var course = _courseService.GetCourse(id);
-            return View(course);
+            if (course == null)
+            {
+                return NotFound();
+            }
+            // Create a CourseViewModel and populate it with the course details
+            var courseViewModel = new CourseViewModel
+            {
+                CourseID = course.CourseID,
+                CourseName = course.CourseName,
+                Duration = course.Duration,
+                Credits = course.Credits,
+                DepartmentID = course.DepartmentID,
+            };
+            return View(courseViewModel);
         }
 
         [HttpPost]
-        public IActionResult DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int courseID)
         {
-            _courseService.DeleteCourse(id);
+            _courseService.DeleteCourse(courseID);
             return RedirectToAction("Index");
         }
     }

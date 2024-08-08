@@ -1,8 +1,4 @@
-﻿@model StudentPortal.Models.Course
-
-@{
-    ViewBag.Title = "Delete Course";
-}
+﻿@model StudentPortal.Models.CourseViewModel
 
 <h2>Delete Course</h2>
 
@@ -13,10 +9,11 @@
     <p>Course Name: @Model.CourseName</p>
     <p>Duration: @Model.Duration</p>
     <p>Credits: @Model.Credits</p>
-    <p>Department: @Model.Department.DepartmentName</p>
+    <p>Department ID: @Model.DepartmentID</p>
 </div>
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("DeleteConfirmed", "Course", FormMethod.Post))
 {
+    @Html.HiddenFor(model => model.CourseID)
     <button type="submit" class="btn btn-primary">Remove</button>
 }
 
