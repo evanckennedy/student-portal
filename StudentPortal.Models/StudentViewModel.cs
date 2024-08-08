@@ -6,6 +6,6 @@
         public string StudentName { get; set; }
         public string StudentEmail { get; set; }
         public int DepartmentID { get; set; }
-        public List<Department> Departments { get; set; }
+        public List<Department> Departments { get; set; } = new List<Department>();
     }
 }

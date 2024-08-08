@@ -30,9 +30,14 @@ namespace StudentPortal.Controllers
         [HttpGet]
         public IActionResult RegisterStudent() 
         {
-            var studentDepartmentModel = new StudentViewModel 
+            var departments = _departmentService.GetDepartments();
+            if (departments == null || !departments.Any())
             {
-                Departments = _departmentService.GetDepartments()
+                throw new Exception("No departments found.");
+            }
+            var studentDepartmentModel = new StudentViewModel
+            {
+                Departments = departments
             };
             return View(studentDepartmentModel);
         }
@@ -47,10 +52,12 @@ namespace StudentPortal.Controllers
                 {
                     StudentName = studentViewModel.StudentName,
                     StudentEmail = studentViewModel.StudentEmail,
-                    DepartmentID = studentViewModel.DepartmentID
+                    DepartmentID = studentViewModel.DepartmentID,
+                    Department = _departmentService.GetDepartments().FirstOrDefault(d => d.DepartmentID == studentViewModel.DepartmentID)
                 };
                 _studentService.AddStudent(student);
                 return RedirectToAction("StudentProfile", new { id = student.StudentID });
+                //return RedirectToAction("Index");
             }
             studentViewModel.Departments = _departmentService.GetDepartments();
             return View(studentViewModel);
