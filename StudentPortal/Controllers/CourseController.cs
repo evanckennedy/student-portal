@@ -110,6 +110,10 @@ namespace StudentPortal.Controllers
         public IActionResult Delete(int id)
         {
             var course = _courseService.GetCourse(id);
+            if (course == null)
+            {
+                return NotFound();
+            }
             return View(course);
         }
 
