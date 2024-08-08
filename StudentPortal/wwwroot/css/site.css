@@ -126,6 +126,16 @@ header {
     font-weight: 500;
     padding-top: 4px;
     align-items: flex-start;
+    text-decoration: none;
+    list-style: none;
+    color: #333;
+    cursor: pointer;
+    > * {
+            color: #333;
+        }
+    p:hover {
+        color: #333;
+    }
 }
 
 .logo {
@@ -161,7 +171,7 @@ header {
 
 .button {
     height: 44px;
-    line-height: 36px;
+    line-height: 39px;
     min-width: 100px;
     color: #fff;
     font-size: 17px;
@@ -175,6 +185,9 @@ header {
 .register-button {
     background-color: #0e5d28;
     border: 1px solid #0e5d28;
+    display: inline-block;
+    text-decoration: none;
+    color: white !important;
 }
 
 .register-button:hover {
@@ -184,11 +197,16 @@ header {
 .login-button {
     background-color: #7e1313;
     border: 1px solid #7e1313;
+    display: inline-block;
+    text-decoration: none;
+    color: white !important;
 }
 
     .login-button:hover {
         background-color: #751414;
     }
+
+
 
 /*-------------------------------------------------------*/
 /* Home-page Banner                                      */

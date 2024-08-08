@@ -34,10 +34,10 @@
         </div>
         <div class="main-header">
             <div class="flex container space-between">
-                <div class="company-icon flex">
+                <a class="company-icon flex">
                     <p class="logo">SL</p>
                     <p>School of Learning</p>
-                </div>
+                </a>
                 <div class="header-options">
                     <ul class="flex gap-10">
                         <!-- Student Dropdown -->
@@ -71,10 +71,9 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="Create">Create Course</a></li>
                             </ul>
                         </li>
-                        <button class="button register-button">Register</button>
-                        <button class="button login-button">Login</button>
+                        <partial name="_LoginPartial" class="button-gap"/>
+                        
                     </ul>
-                    <partial name="_LoginPartial" />
                 </div>
                 
             </div>
