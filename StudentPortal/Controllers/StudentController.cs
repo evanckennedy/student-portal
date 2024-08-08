@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentPortal.BLL;
 using StudentPortal.Models;
 
 namespace StudentPortal.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly StudentService _studentService;

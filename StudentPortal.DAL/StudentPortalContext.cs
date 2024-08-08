@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using StudentPortal.Models;
 
 namespace StudentPortal.DAL
 {
-    public class StudentPortalContext : DbContext
+    public class StudentPortalContext : IdentityDbContext<IdentityUser>
     {
         // properties
         public DbSet<Course> Courses { get; set; }

@@ -18,6 +18,12 @@ namespace StudentPortal
             builder.Services.AddDbContext<StudentPortalContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            // add identity service
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<StudentPortalContext>()
+                .AddDefaultUI();
+
+
             //register DAL and BLL servies
             builder.Services.AddScoped<CourseDAL>();
             builder.Services.AddScoped<StudentDAL>();
@@ -37,11 +43,13 @@ namespace StudentPortal
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+            app.MapRazorPages();
 
             app.Run();
         }
