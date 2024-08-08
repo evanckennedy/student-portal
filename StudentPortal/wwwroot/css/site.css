@@ -1,11 +1,12 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
+    scrollbar-gutter: stable;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -18,5 +19,325 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: "Inter", sans-serif;
+    background-color: #f8f9fe;
+}
+
+main {
+    min-height: 88svh;
+}
+
+.container {
+    width: min(100% - 30px, 1200px);
+    margin-inline: auto;
+}
+
+.grid {
+    display: grid;
+}
+
+.place-center {
+    place-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.up-case {
+    text-transform: uppercase;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.gap-20 {
+    gap: 20px;
+}
+
+.gap-30 {
+    gap: 30px;
+}
+
+.gap-50 {
+    gap: 50px;
+}
+
+.width-33 {
+    width: 33.33%;
+}
+
+.wide-50 {
+    width: 40%;
+}
+
+.highlight-text {
+    font-weight: 500;
+}
+
+ul {
+    text-decoration: none;
+    list-style: none;
+}
+
+.pricing p {
+    color: #636B72;
+}
+
+section {
+    padding: 65px 0 65px 0;
+}
+
+/*-------------------------------------------------------*/
+/* Header                                                */
+/*-------------------------------------------------------*/
+header {
+    color: #fff;
+    font-size: 18px;
+}
+
+.sub-header {
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    background-color: #212486;
+    color: #f8f9fe;
+}
+
+.main-header {
+    height: 70px;
+    line-height: 54px;
+    background-color: #f8f9fe;
+    box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+    color: #333;
+}
+
+.company-icon {
+    font-size: 24px;
+    font-weight: 500;
+    padding-top: 4px;
+    align-items: flex-start;
+}
+
+.logo {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 700;
+    font-size: 34px;
+    color: #212486;
+    padding-right: 12px;
+}
+
+.header-options {
+    position: relative;
+    left: 60px;
+}
+
+    .header-options ul {
+        align-items: center;
+        font-size: 17px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .header-options a {
+        text-decoration: none;
+        color: rgb(40, 40, 41);
+    }
+
+    .header-options li:hover {
+        list-style: none;
+        color: #555;
+    }
+
+.button {
+    height: 44px;
+    line-height: 36px;
+    min-width: 100px;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 50px;
+    background-color: aqua;
+    transition: all 0.25s ease-in-out;
+}
+
+.register-button {
+    background-color: #0e5d28;
+    border: 1px solid #0e5d28;
+}
+
+.register-button:hover {
+    background-color: #014e25;
+}
+
+.login-button {
+    background-color: #7e1313;
+    border: 1px solid #7e1313;
+}
+
+    .login-button:hover {
+        background-color: #751414;
+    }
+
+/*-------------------------------------------------------*/
+/* Home-page Banner                                      */
+/*-------------------------------------------------------*/
+.home-banner {
+    height: 65svh;
+    width: 100%;
+    background-image: linear-gradient( rgba(45, 92, 132, 0.5), rgba(45, 92, 132, 0.5) ), url("../media/img/home-bg.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+    .home-banner h1 {
+        font-size: 64px;
+    }
+
+    .home-banner p {
+        font-family: "Dancing Script", cursive;
+        font-size: 34px;
+        font-weight: 600;
+    }
+
+/*-------------------------------------------------------*/
+/* Mission Section                                       */
+/*-------------------------------------------------------*/
+.row-one, .mission-row, .team-row, .learn-more {
+    flex-wrap: wrap;
+}
+.mission-columns {
+    flex: 0 0 calc(25% - 15px);
+    max-width: calc(25% - 15px);
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    text-align: left;
+    box-shadow: 0.5px 0.5px 1px 0.5px rgb(0 0 0 / 0.03);
+    transition: all 0.25s ease-in-out;
+}
+
+.columns h3 {
+    font-size: 23px;
+}
+
+.columns i {
+    font-size: 60px;
+    color: #0067ff;
+}
+
+.section-heading {
+    padding: 0px 0 25px 0;
+}
+
+.section-heading h3 {
+    font-size: 46.4px;
+    padding-top: 10px;
+}
+
+.section-heading h3 span {
+    color: #1d439a;
+}
+
+.mission-columns h3 {
+    color: #1d439a;
+}
+
+.mission-columns:hover {
+    scale: 1.015;
+    box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 0.04);
+}
+
+.mission-row i {
+    padding: 2px 10px 0 0;
+    font-size: 28px;
+}
+
+/*-------------------------------------------------------*/
+/* Footer                                                */
+/*-------------------------------------------------------*/
+footer {
+    color: #f8f9fe;
+    background: linear-gradient(#323547, #000);
+}
+
+.socials {
+    justify-content: center;
+    padding: 60px 0 0;
+    font-size: 30px;
+    color: #f8f9fe;
+    cursor: pointer;
+}
+
+.socials i {
+    transition: all 0.25s ease-in-out;
+}
+
+.socials i:hover {
+    color: #a1afd9;
+}
+
+.main-footer {
+    margin-top: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 17px;
+    border-bottom: 1px solid #a6acba;
+}
+
+.footer-icon {
+    margin-left: 12px;
+    font-size: 26px;
+}
+
+.footer-icon .logo {
+    color: #a6acba;
+}
+
+.logo-text {
+    margin: -20px 0 0 18px;
+    font-family: "Dancing Script", cursive;
+    font-size: 26px;
+    font-weight: 500;
+    color: #fff;
+}
+
+footer h4 {
+    padding-left: 26px;
+    font-size: 18px;
+}
+
+footer li {
+    list-style: none;
+    color: #a6acba;
+    cursor: pointer;
+}
+
+footer li:hover {
+    text-decoration: underline;
+}
+
+footer span {
+    padding-bottom: 46px;
+}
+
+.copyright {
+    padding: 30px 0 26px;
+    font-size: 18px;
+    font-weight: 500;
 }
