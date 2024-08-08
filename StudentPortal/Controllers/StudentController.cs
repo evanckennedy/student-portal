@@ -126,6 +126,7 @@ namespace StudentPortal.Controllers
                     StudentName = studentViewModel.StudentName,
                     StudentEmail = studentViewModel.StudentEmail,
                     DepartmentID = studentViewModel.DepartmentID
+
                 };
                 _studentService.UpdateStudent(student);
                 return RedirectToAction("Index");

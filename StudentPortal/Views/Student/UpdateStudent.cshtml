@@ -4,6 +4,7 @@
 
 @using (Html.BeginForm()) 
 {
+    @Html.HiddenFor(m => m.StudentID)
     <div class="form-field">
         @Html.LabelFor(m => m.StudentName)
         @Html.TextBoxFor(m => m.StudentName)
@@ -16,7 +17,7 @@
     </div>
     <div class="form-field">
         @Html.LabelFor(m => m.DepartmentID, "Department")
-        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentId", "DepartmentName"), "Select a Department")
+        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentID", "DepartmentName"), "Select a Department")
         @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
     </div>
 
