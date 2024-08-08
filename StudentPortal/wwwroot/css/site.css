@@ -362,3 +362,52 @@ footer span {
     font-size: 18px;
     font-weight: 500;
 }
+
+/*-------------------------------------------------------*/
+/* Views                                                 */
+/*-------------------------------------------------------*/
+.delete-department {
+    margin-top: 60px;
+}
+
+.view h2 {
+    padding-bottom: 16px;
+    color: #1d439a;
+}
+
+.view p {
+    font-size: 20px;
+}
+
+.view-button {
+    padding-top: 22px;
+}
+
+.view-button button, .view-button a {
+    height: 44px;
+    width: 84px;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.view-button button {
+    margin-right: 20px;
+    background-color: #0e5d28;
+    border: 1px solid #0e5d28;
+}
+
+.view-button button:hover {
+    background-color: #014e25;
+}
+
+.view-button a {
+    background-color: #7e1313;
+    border: 1px solid #7e1313;
+}
+
+.view-button a:hover {
+    background-color: #751414;
+}
