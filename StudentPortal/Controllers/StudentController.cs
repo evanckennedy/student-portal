@@ -85,11 +85,14 @@ namespace StudentPortal.Controllers
         public IActionResult EnrolledCourses(int studentID) 
         {
             var student = _studentService.GetStudent(studentID);
+            var department = _departmentService.GetDepartment(student.DepartmentID);
+            var courses = department.Courses;
             if (student == null) 
             {
                 return NotFound();
             }
-            var courses = student.Courses.ToList();
+            //var courses = student.Courses;
+            ViewBag.StudentID = studentID;
             return View(courses);
         }
 
