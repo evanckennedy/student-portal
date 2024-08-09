@@ -1,11 +1,22 @@
 ﻿@model StudentPortal.Models.Student
 
-<h2>My User Profile</h2>
-
-<div>
-    <p>Student Number: #@Model.StudentID</p>
-    <p>Name: @Model.StudentName</p>
-    <p>Email Address: @Model.StudentEmail</p>
-    <p>Department: @Model.Department.DepartmentName</p>
-    <a href="@Url.Action("EnrolledCourses", new { studentId = Model.StudentID })">View Enrolled Courses</a>
-</div>
+<section class="delete-department grid place-center view">
+    <h2>My User Profile</h2>
+    <div class="flex">
+        <div class="info">
+            <p>Student Number: #@Model.StudentID</p>
+            <p>Name: @Model.StudentName</p>
+            <p>Email Address: @Model.StudentEmail</p>
+            <p>Department: @Model.Department.DepartmentName</p>
+            <div class="view-button flex gap-30">
+                <a href="@Url.Action("EnrolledCourses", new { studentId = Model.StudentID })" class="btn btn-primary profile-button">View My Courses</a>
+            </div>
+        </div>
+        <div class="profile-img">
+            <figure>
+                <img src="../wwwroot/media/img/profile-pic.jpg">
+            </figure>
+        </div>
+    </div>
+    
+</section>

@@ -397,16 +397,16 @@ footer span {
     transition: all 0.25s ease-in-out;
 }
 
-.view-button button {
-    margin-right: 20px;
-    background-color: #0e5d28;
-    border: 1px solid #0e5d28;
-}
-
-    .view-button button:hover {
-        background-color: #014e25;
+    .view-button button, .view-button .profile-button {
+        margin-right: 20px;
+        background-color: #0e5d28;
         border: 1px solid #0e5d28;
     }
+
+        .view-button button:hover, .view-button .profile-button:hover {
+            background-color: #014e25;
+            border: 1px solid #0e5d28;
+        }
 
 .view-button a {
     background-color: #7e1313;
@@ -474,4 +474,15 @@ form span {
 
 .create {
     margin-top: 24px;
+}
+
+.view-button .profile-button {
+    padding: 8px 2px;
+    font-size: 15px;
+    width: 150px;
+}
+
+figure img {
+    height: 200px;
+    width: 200px;
 }
