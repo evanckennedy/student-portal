@@ -495,3 +495,8 @@ form span {
 .prf {
     padding-top: 20px;
 }
+
+.log-container {
+    width: min(100% - 30px, 1080px);
+    margin-inline: auto;
+}
