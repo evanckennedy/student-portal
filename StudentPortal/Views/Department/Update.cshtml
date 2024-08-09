@@ -1,22 +1,27 @@
 ﻿@model StudentPortal.Models.Department
 
-<h2>Update Department</h2>
+<section class="create grid place-center view">
+    <h2>Change Department Details</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.HiddenFor(m => m.DepartmentID)
-    <div class="form-field">
-        @Html.LabelFor(m => m.DepartmentName)
-        @Html.TextBoxFor(m => m.DepartmentName)
-        @Html.ValidationMessageFor(m => m.DepartmentName, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-field">
-        @Html.LabelFor(m => m.DepartmentHead)
-        @Html.TextBoxFor(m => m.DepartmentHead)
-        @Html.ValidationMessageFor(m => m.DepartmentHead, "", new { @class = "text-danger" })
-    </div>
-
-    <button type="submit" class="btn btn-primary">Update</button>
-}
-
-<a href="@Url.Action("Index")">Back to List</a>
+    @using (Html.BeginForm()) {
+        @Html.HiddenFor(m => m.DepartmentID)
+        <div class="form-field">
+            @Html.LabelFor(m => m.DepartmentName)
+            @Html.TextBoxFor(m => m.DepartmentName)
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.DepartmentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.DepartmentHead)
+            @Html.TextBoxFor(m => m.DepartmentHead)
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.DepartmentHead, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="view-button create-button flex gap-30">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="@Url.Action("Index")" class="btn btn-primary">Go Back</a>
+        </div>    
+    }
+</section>

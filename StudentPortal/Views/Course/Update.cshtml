@@ -1,29 +1,40 @@
 ﻿@model StudentPortal.Models.CourseViewModel
-<h2>Change Course Details</h2>
+<section class="create grid place-center view">
+    <h2>Change Course Details</h2>
 
-@using (Html.BeginForm()) {
-    @Html.HiddenFor(m => m.CourseID)
-    <div class="form-field">
-        @Html.LabelFor(m => m.CourseName)
-        @Html.TextBoxFor(m => m.CourseName)
-        @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-field">
-        @Html.LabelFor(m => m.Duration)
-        @Html.TextBoxFor(m => m.Duration)
-        @Html.ValidationMessageFor(m => m.Duration, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-field">
-        @Html.LabelFor(m => m.Credits)
-        @Html.TextBoxFor(m => m.Credits)
-        @Html.ValidationMessageFor(m => m.Credits, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(m => m.DepartmentID, "Department")
-        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentID", "DepartmentName"), "Select a Department")
-        @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
-    </div>
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-}
-
-<a href="@Url.Action("Index")">Back to List</a>
+    @using (Html.BeginForm()) {
+        @Html.HiddenFor(m => m.CourseID)
+        <div class="form-field">
+            @Html.LabelFor(m => m.CourseName)
+            @Html.TextBoxFor(m => m.CourseName)
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.Duration)
+            @Html.TextBoxFor(m => m.Duration)
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.Credits)
+            @Html.TextBoxFor(m => m.Credits)
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.Credits, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(m => m.DepartmentID, "Department")
+            @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentID", "DepartmentName"), "Select a Department")
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="view-button create-button flex gap-30">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="@Url.Action("Index")" class="btn btn-primary">Go Back</a>
+        </div>
+    }
+</section>
