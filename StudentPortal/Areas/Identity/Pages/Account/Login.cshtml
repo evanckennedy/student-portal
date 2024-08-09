@@ -12,29 +12,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <style>
-        /* Page container */
+
         .login-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            background-color: #f8f9fa;
+            margin-top: 40px;
             padding: 20px;
         }
 
-        /* Card container */
         .login-card {
-            background-color: #fff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-wrap: wrap;
             width: 100%;
             max-width: 900px;
         }
 
-        /* Form container */
         .login-form {
             width: 100%;
             max-width: 400px;
@@ -44,7 +39,7 @@
         .login-form h2 {
             color: #343a40;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 30px;
         }
 
         .login-form .form-floating {
@@ -56,23 +51,22 @@
         }
 
         .login-form .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+            background-color: #1d439a;
+                border-color: #1d439a;
             width: 100%;
         }
 
         .login-form a {
-            color: #007bff;
+            color: #212486;
             text-decoration: none;
         }
 
-        /* Image container */
         .login-image {
             flex: 1;
-            background-image: url('https://source.unsplash.com/800x600/?university,classroom');
+            background-image: url('@Url.Content("~/media/img/hat.jpg")');
             background-position: center;
             background-size: cover;
-            border-radius: 8px;
+            border-radius: 2px;
             min-height: 300px;
         }
     </style>
