@@ -6,14 +6,14 @@
     @using (Html.BeginForm()) {
         <div class="form-field">
             @Html.LabelFor(m => m.DepartmentName)
-            @Html.TextBoxFor(m => m.DepartmentName)
+            @Html.TextBoxFor(m => m.DepartmentName, new { placeholder = "Enter Department Name"})
             <div class="flex-column">
                 @Html.ValidationMessageFor(m => m.DepartmentName, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-field">
             @Html.LabelFor(m => m.DepartmentHead)
-            @Html.TextBoxFor(m => m.DepartmentHead)
+            @Html.TextBoxFor(m => m.DepartmentHead, new { placeholder = "Enter name of the Department Head"})
             <div class="flex-column">
                 @Html.ValidationMessageFor(m => m.DepartmentHead, "", new { @class = "text-danger" })
             </div>

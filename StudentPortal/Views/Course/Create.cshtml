@@ -1,31 +1,40 @@
-﻿@model CourseViewModel
+﻿@model StudentPortal.Models.CourseViewModel
 
-<h2>Create Course</h2>
+<section class="create grid place-center view">
+    <h2>Add New Course</h2>
 
-@using (Html.BeginForm()) 
-{
-    <div>
-        @Html.LabelFor(m => m.CourseName)
-        @Html.TextBoxFor(m => m.CourseName)
-        @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(m => m.Duration) (in Months)
-        @Html.TextBoxFor(m => m.Duration)
-        @Html.ValidationMessageFor(m => m.Duration, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(m => m.Credits)
-        @Html.TextBoxFor(m => m.Credits)
-        @Html.ValidationMessageFor(m => m.Credits, "", new { @class = "text-danger" })
-    </div>
-    <div>
-        @Html.LabelFor(m => m.DepartmentID, "Department")
-        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentID", "DepartmentName"), "Select a Department")
-        @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
-    </div>
-
-    <button type="submit" class="btn btn-primary">Add</button>
-}
-
-<a href="@Url.Action("Index")">Back to List</a>
+    @using (Html.BeginForm()) {
+        <div class="form-field">
+            @Html.LabelFor(m => m.CourseName)
+            @Html.TextBoxFor(m => m.CourseName, new { placeholder = "Enter Course Name" })
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
+            </div>  
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.Duration) (in Months)
+            @Html.TextBoxFor(m => m.Duration, new { placeholder = "Enter duration in months" })
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.Credits)
+            @Html.TextBoxFor(m => m.Credits, new { placeholder = "Enter credits as a number"})
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.Credits, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.DepartmentID, "Department")
+            @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentID", "DepartmentName"), "Select a Department")
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="view-button create-button flex gap-30">
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a href="@Url.Action("Index")" class="btn btn-primary">View All</a>
+        </div>   
+    }
+</section>
