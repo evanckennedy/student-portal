@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentPortal.BLL;
 using StudentPortal.Models;
 using System.Net.Http.Headers;
 
 namespace StudentPortal.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DepartmentController : Controller
     {
         private readonly DepartmentService _departmentService;

@@ -5,7 +5,7 @@ using StudentPortal.Models;
 
 namespace StudentPortal.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class StudentController : Controller
     {
         private readonly StudentService _studentService;
@@ -20,6 +20,7 @@ namespace StudentPortal.Controllers
         // index page for the admin showing a list of all students
         // alongwith the department name they are enrolled in and
         // options to delete and update the student
+        [Authorize(Roles = "Admin")]
         public IActionResult Index() 
         {
             var students = _studentService.GetStudents();
@@ -103,6 +104,7 @@ namespace StudentPortal.Controllers
 
         // it is for the admin to make change in student name,
         // student email and their department
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult UpdateStudent(int id) 
         {
@@ -144,6 +146,7 @@ namespace StudentPortal.Controllers
         }
 
         // it is for the admin to delete a student
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult DeleteStudent(int id) 
         {
