@@ -5,7 +5,7 @@ using StudentPortal.Models;
 
 namespace StudentPortal.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class StudentController : Controller
     {
         private readonly StudentService _studentService;
