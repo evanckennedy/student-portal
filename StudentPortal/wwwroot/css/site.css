@@ -133,9 +133,6 @@ header {
     > * {
             color: #333;
         }
-    p:hover {
-        color: #333;
-    }
 }
 
 .logo {
@@ -188,6 +185,9 @@ header {
     display: inline-block;
     text-decoration: none;
     color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .register-button:hover {
@@ -200,6 +200,9 @@ header {
     display: inline-block;
     text-decoration: none;
     color: white !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
     .login-button:hover {
