@@ -31,6 +31,34 @@ The application uses a relational database with three main tables:
 2. **Courses**
 3. **Departments**
 
+## Installation
+
+### Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/yourprojectname.git
+```
+
+### Navigate to the project directory:
+```bash
+cd <projectname>
+```
+
+### Restore the dependencies:
+```bash
+dotnet restore
+```
+
+### Set up the database:
+```bash
+dotnet ef database update
+```
+
+### Run the application:
+```bash
+dotnet run
+```
+
 ## Usage
 
 - Navigate to the main page and use the navigation bar to access different features such as managing students, courses, and departments.
