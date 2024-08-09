@@ -375,6 +375,10 @@ footer span {
     color: #1d439a;
 }
 
+.view h3 {
+    font-size: 24px;
+}
+
 .view p {
     font-size: 20px;
 }
@@ -410,4 +414,14 @@ footer span {
 
 .view-button a:hover {
     background-color: #751414;
+}
+
+.info {
+    margin: 19px 0 16px;
+    background-color: #fff;
+    padding: 40px 50px;
+}
+
+.info p{
+    margin: -4px 0;
 }

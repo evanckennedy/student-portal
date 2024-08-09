@@ -1,19 +1,21 @@
 ﻿@model StudentPortal.Models.StudentViewModel
 
-<h2>Remove Student</h2>
+<section class="delete-department grid place-center view">
+    <h2>Remove Student</h2>
 
-<h3>Are you sure you want to remove the following student from the record?</h3>
+    <h3>Are you sure you want to remove the following student?</h3>
 
-<div>
-    <p>Student Number: #@Model.StudentID</p>
-    <p>Name: @Model.StudentName</p>
-    <p>Email Address: @Model.StudentEmail</p>
-    <p>Department ID: @Model.DepartmentID</p>
-</div>
-@using (Html.BeginForm("DeleteConfirmed", "Student", FormMethod.Post))
-{
-    <input type="hidden" asp-for="StudentID" />
-    <button type="submit" class="btn btn-primary">Remove</button>
-}
-
-<a href="/Student/Index">Back to Students' List</a>
+    <div class="info">
+        <p>Student Number: #@Model.StudentID</p>
+        <p>Name: @Model.StudentName</p>
+        <p>Email Address: @Model.StudentEmail</p>
+        <p>Department Number: #@Model.DepartmentID</p>
+    </div>
+    <div class="view-button flex gap-30">
+        @using (Html.BeginForm("DeleteConfirmed", "Student", FormMethod.Post)) {
+            <input type="hidden" asp-for="StudentID" />
+            <button type="submit" class="btn btn-primary">Yes</button>
+            <a href="/Student/Index" class="btn btn-primary">No</a>
+        }
+    </div>
+</section>
