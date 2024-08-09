@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using StudentPortal.BLL;
@@ -6,6 +7,7 @@ using StudentPortal.Models;
 
 namespace StudentPortal.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CourseController : Controller
     {
         // private fields

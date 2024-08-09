@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -15,6 +20,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap">
 </head>
 <body>
+    @if (User.IsInRole("Admin"))
+    {
     <header>
         <div class="sub-header">
             <div class="container flex space-between">
@@ -71,14 +78,58 @@
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Course" asp-action="Create">Create Course</a></li>
                             </ul>
                         </li>
-                        <partial name="_LoginPartial" class="button-gap"/>
-                        
+                        <partial name="_LoginPartial" class="button-gap" />
+
                     </ul>
                 </div>
-                
+
             </div>
         </div>
     </header>
+    } else 
+    {
+    <header>
+        <div class="sub-header">
+            <div class="container flex space-between">
+                <p class="up-case">Apply before August 20 to avail 'Early-Bird' scholarship!</p>
+                <div class="top-side-options flex gap-20">
+                    <p class="up-case">
+                        Usd <i class="fa-solid fa-angle-down"></i>
+                    </p>
+                    <p>
+                        English <i class="fa-solid fa-angle-down"></i>
+                    </p>
+                    <p>
+                        My Account <i class="fa-solid fa-angle-down"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="flex container space-between">
+                <a class="company-icon flex" href="/">
+                    <p class="logo">SL</p>
+                    <p>School of Learning</p>
+                </a>
+                <div class="header-options">
+                    <ul class="flex gap-10">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="RegisterStudent">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="StudentProfile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="EnrolledCourses">Enrolled Courses</a>
+                        </li>
+                        <partial name="_LoginPartial" class="button-gap" />
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    }
+    
 
     <div>
         <main role="main" class="pb-3">
