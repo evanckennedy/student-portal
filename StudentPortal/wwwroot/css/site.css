@@ -362,3 +362,127 @@ footer span {
     font-size: 18px;
     font-weight: 500;
 }
+
+/*-------------------------------------------------------*/
+/* Views                                                 */
+/*-------------------------------------------------------*/
+.delete-department {
+    margin-top: 60px;
+}
+
+.view h2 {
+    padding-bottom: 16px;
+    color: #1d439a;
+}
+
+.view h3 {
+    font-size: 24px;
+}
+
+.view p {
+    font-size: 20px;
+}
+
+.view-button {
+    padding-top: 22px;
+}
+
+.view-button button, .view-button a {
+    height: 44px;
+    width: 84px;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+    .view-button button, .view-button .profile-button {
+        margin-right: 20px;
+        background-color: #0e5d28;
+        border: 1px solid #0e5d28;
+    }
+
+        .view-button button:hover, .view-button .profile-button:hover {
+            background-color: #014e25;
+            border: 1px solid #0e5d28;
+        }
+
+.view-button a {
+    background-color: #7e1313;
+    border: 1px solid #7e1313;
+}
+
+    .view-button a:hover {
+        background-color: #751414;
+        border: 1px solid #7e1313;
+    }
+
+.info {
+    margin: 19px 0 16px;
+    background-color: #fff;
+    padding: 40px 50px;
+}
+
+.info p{
+    margin: -4px 0;
+}
+
+.create .view-button button, .create .view-button a {
+    width: 100px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.create .view-button button {
+    margin-right: -12px;
+}
+
+form {
+    font-size: 22px;
+}
+
+.form-field {
+    margin: 14px 0 20px;
+}
+
+input {
+    margin-left: 4px;
+    padding-left: 12px;
+    height: 48px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 1px solid #f7f7f7;
+    box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 0.043);
+}
+
+form span {
+    font-size: 16px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-button {
+    justify-content: center;
+}
+
+.create {
+    margin-top: 24px;
+}
+
+.view-button .profile-button {
+    padding: 8px 2px;
+    font-size: 15px;
+    width: 150px;
+}
+
+figure img {
+    height: 200px;
+    width: 200px;
+}

@@ -1,33 +1,122 @@
 ﻿@model IEnumerable<Course>
 
-<h2>All Courses</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Course ID</th>
-            <th>Course Name</th>
-            <th>Duration</th>
-            <th>Credits</th>
-            <th>Department</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var course in Model) 
-        {
-            <tr>
-                <td>@course.CourseID</td>
-                <td>@course.CourseName</td>
-                <td>@course.Duration Months</td>
-                <td>@course.Credits</td>
-                <td>@course.Department.DepartmentName</td>
-                <td>
-                    <a href="@Url.Action("Update", new { id = course.CourseID })">Edit</a>
-                    <a href="@Url.Action("Delete", new { id = course.CourseID })">Delete</a>
-                </td>
-            </tr>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f8f9fe;
         }
-    </tbody>
-</table>
 
-<a href="@Url.Action("Create")">Add New Course</a>
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+            .table th, .table td {
+                padding: 12px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #1d439a;
+                color: white;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+        a {
+            color: #1d439a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        .add-new {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #1d439a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .add-new:hover {
+                background-color: #14306b;
+                color: white;
+            }
+
+        .icon {
+            margin-right: 5px;
+        }
+
+        .edit {
+            color: #367f14;
+        }
+
+            .edit:hover {
+                color: #0e5d28;
+            }
+
+        .delete {
+            color: #cc0000;
+        }
+
+            .delete:hover {
+                color: #7e1313;
+            }
+
+            a:hover, .edit:hover, .delete:hover, .add-new:hover {
+                text-decoration: none;
+            }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <section class="container view">
+        <h2>All Courses</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Duration</th>
+                    <th>Credits</th>
+                    <th>Department</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model) {
+                    <tr>
+                        <td>#@course.CourseID</td>
+                        <td>@course.CourseName</td>
+                        <td>@course.Duration Months</td>
+                        <td>@course.Credits</td>
+                        <td>@course.Department.DepartmentName</td>
+                        <td>
+                            <a href="@Url.Action("Update", new { id = course.CourseID })" class="edit">
+                                <i class="fas fa-edit icon"></i>Edit
+                            </a> |
+                            <a href="@Url.Action("Delete", new { id = course.CourseID })" class="delete">
+                                <i class="fas fa-trash-alt icon"></i>Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <a href="@Url.Action("Create")" class="add-new">
+            <i class="fas fa-plus icon"></i>Add New Course
+        </a>
+    </section>
+</body>
+</html>

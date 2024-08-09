@@ -1,20 +1,22 @@
 ﻿@model StudentPortal.Models.CourseViewModel
 
-<h2>Delete Course</h2>
+<section class="delete-department grid place-center view">
+    <h2>Delete Course</h2>
 
-<h3>Are you sure you want to remove the following course from the department?</h3>
+    <h3>Are you sure you want to remove the following courses?</h3>
 
-<div>
-    <p>Course ID: #@Model.CourseID</p>
-    <p>Course Name: @Model.CourseName</p>
-    <p>Duration: @Model.Duration</p>
-    <p>Credits: @Model.Credits</p>
-    <p>Department ID: @Model.DepartmentID</p>
-</div>
-@using (Html.BeginForm("DeleteConfirmed", "Course", FormMethod.Post))
-{
-    @Html.HiddenFor(model => model.CourseID)
-    <button type="submit" class="btn btn-primary">Remove</button>
-}
-
-<a href="/Course/Index">Back to Courses' List</a>
+    <div class ="info">
+        <p>Course Number: #@Model.CourseID</p>
+        <p>Course Name: @Model.CourseName</p>
+        <p>Duration: @Model.Duration months</p>
+        <p>Credits: @Model.Credits</p>
+        <p>Department Number: #@Model.DepartmentID</p>
+    </div>
+    <div class="view-button flex gap-30">
+        @using (Html.BeginForm("DeleteConfirmed", "Course", FormMethod.Post)) {
+            @Html.HiddenFor(model => model.CourseID)
+            <button type="submit" class="btn btn-primary">Yes</button>
+            <a href="/Course/Index" class="btn btn-primary">No</a>
+        }
+    </div>
+</section>
