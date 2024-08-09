@@ -1,21 +1,26 @@
 ﻿@model StudentPortal.Models.DepartmentViewModel
 
-<h2>Add Department</h2>
+<section class="create grid place-center view">
+    <h2>Add Department</h2>
 
-@using (Html.BeginForm())
-{
-    <div class="form-field">
-        @Html.LabelFor(m => m.DepartmentName)
-        @Html.TextBoxFor(m => m.DepartmentName)
-        @Html.ValidationMessageFor(m => m.DepartmentName, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-field">
-        @Html.LabelFor(m => m.DepartmentHead)
-        @Html.TextBoxFor(m => m.DepartmentHead)
-        @Html.ValidationMessageFor(m => m.DepartmentHead, "", new { @class = "text-danger" })
-    </div>
-
-    <button type="submit" class="btn btn-primary">Add</button>
-}
-
-<a href="@Url.Action("Index")">Back to List</a>
+    @using (Html.BeginForm()) {
+        <div class="form-field">
+            @Html.LabelFor(m => m.DepartmentName)
+            @Html.TextBoxFor(m => m.DepartmentName)
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.DepartmentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.DepartmentHead)
+            @Html.TextBoxFor(m => m.DepartmentHead)
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.DepartmentHead, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="view-button create-button flex gap-30">
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a href="@Url.Action("Index")" class="btn btn-primary">View All</a>
+        </div>
+    }
+</section>
