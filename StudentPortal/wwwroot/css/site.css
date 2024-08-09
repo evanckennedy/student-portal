@@ -429,7 +429,7 @@ footer span {
 }
 
 .create .view-button button, .create .view-button a {
-    width: 94px;
+    width: 100px;
     font-size: 17px;
     font-weight: 500;
     cursor: pointer;

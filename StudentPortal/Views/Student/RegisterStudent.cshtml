@@ -3,28 +3,33 @@
 @{
     ViewBag.Title = "Register Student";
 }
+<section class="create grid place-center view">
+    <h2>Register Student</h2>
 
-<h2>Register Student</h2>
-
-@using (Html.BeginForm()) 
-{
-    <div class="form-field">
-        @Html.LabelFor(m => m.StudentName)
-        @Html.TextBoxFor(m => m.StudentName)
-        @Html.ValidationMessageFor(m => m.StudentName, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-field">
-        @Html.LabelFor(m => m.StudentEmail)
-        @Html.TextBoxFor(m => m.StudentEmail)
-        @Html.ValidationMessageFor(m => m.StudentEmail, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-field">
-        @Html.LabelFor(m => m.DepartmentID, "Department")
-        @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentID", "DepartmentName"), "Select a Department")
-        @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Register</button>
-}
-
-@* <a href="@Url.Action("Index")">Back to List</a> *@
+    @using (Html.BeginForm()) {
+        <div class="form-field">
+            @Html.LabelFor(m => m.StudentName)
+            @Html.TextBoxFor(m => m.StudentName, new { placeholder = "Enter your Full Name" })
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.StudentName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.StudentEmail)
+            @Html.TextBoxFor(m => m.StudentEmail, new { placeholder = "Enter Email Address" })
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.StudentEmail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-field">
+            @Html.LabelFor(m => m.DepartmentID, "Department")
+            @Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "DepartmentID", "DepartmentName"), "Select a Department")
+            <div class="flex-column">
+                @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="view-button create-button flex gap-30">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    }
+</section>
