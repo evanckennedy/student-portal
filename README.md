@@ -63,7 +63,7 @@ dotnet run
 For testing purposes, you can use the following credentials to log in to the application as an admin:
 
 - **Email**: `admin@admin.com`
-- **Password**: `Test1234`
+- **Password**: `Test1234@`
 
 ## Usage
 
