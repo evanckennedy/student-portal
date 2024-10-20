@@ -34,14 +34,13 @@ The application uses a relational database with three main tables:
 ## Installation
 
 ### Clone the repository:
-
 ```bash
-git clone https://github.com/yourusername/yourprojectname.git
+git clone https://github.com/evanckennedy/student-portal.git
 ```
 
 ### Navigate to the project directory:
 ```bash
-cd <projectname>
+cd StudentPortal
 ```
 
 ### Restore the dependencies:
@@ -58,6 +57,13 @@ dotnet ef database update
 ```bash
 dotnet run
 ```
+
+## Admin Login Details
+
+For testing purposes, you can use the following credentials to log in to the application as an admin:
+
+- **Email**: `admin@admin.com`
+- **Password**: `Test1234`
 
 ## Usage
 
