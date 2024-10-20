@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a comprehensive web application designed to manage student information, courses, and departments within a university setting. The application is built using .NET CORE with an N-Tier architecture, employing Entity Framework Core for database operations. It demonstrates proficiency in database design, functionality implementation, user interface design, and efficient navigation.
+This project is a comprehensive web application designed to manage student information, courses, and departments within a university setting. The application is built using ASP.NET Core MVC with an N-Tier architecture, employing Entity Framework Core for database operations. It demonstrates proficiency in database design, functionality implementation, user interface design, and efficient navigation.
 
 ## Contributors
 
